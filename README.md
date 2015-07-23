@@ -1,7 +1,7 @@
 Another KOAN
 ============
 
-Database agnostic KOAN Stack, which is a boilerplate providing a nice starting point for JavaScript web development with [Koa](http://koajs.com/), [AngularJS](https://angularjs.org/) and Node.js.
+Database agnostic KOAN Stack, which is a boilerplate providing a nice starting point for JavaScript web development of single page application with [Koa](http://koajs.com/), [AngularJS](https://angularjs.org/) and Node.js.
 
 ## Summary of the tech stack
 
