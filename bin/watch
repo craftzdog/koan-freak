@@ -1,0 +1,6 @@
+#!/bin/bash
+
+. "$NVM_DIR/nvm.sh"
+clean
+webpack --display-error-details --progress --colors --watch --devtool sourcemap
+#nvm exec stable webpack --progress --colors --watch --devtool sourcemap

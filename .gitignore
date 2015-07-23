@@ -1,0 +1,37 @@
+nodemon*
+build
+*.bak
+*.map
+public
+
+# Node.js
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+node_modules/
+
+# KOAN
+
+dist
+.tmp
+.nodemon
+bower_components/
+.DS_Store
+.nodemonignore
+.sass-cache/
+.bower-*/
+test/coverage/
+logs/*
+!.gitkeep

@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title #{title}
+    base(href="/")
+    meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1")
+    meta(charset="UTF-8")
+    each css in webpack.css
+      link(rel="stylesheet" href="/css/" + css)
+    meta(name="c" content=csrf)
+    script(type="text/javascript").
+      window.___c = !{JSON.stringify(config)};
+    each js in webpack.js
+      script(src="/js/" + js)
+    script(type="text/javascript").
+      //window.main = angular.module('webService', []);
+  body(ontouchstart="")
+    div(ui-view="")

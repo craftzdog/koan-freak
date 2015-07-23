@@ -1,0 +1,5 @@
+#!/bin/bash
+
+clean
+echo Compiling..
+webpack --progress --colors --optimize-minimize -p --config production.webpack.config.js

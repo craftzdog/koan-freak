@@ -1,0 +1,3 @@
+#!/bin/bash
+ROOTDIR=$(dirname $0)/..
+NODE_ENV="development" nodemon --harmony index.js --watch $ROOTDIR/index.js --watch $ROOTDIR/app

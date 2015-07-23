@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo Cleaning..
+find public -type f | xargs rm -v
