@@ -15,14 +15,14 @@ module.exports = {
       'angular-route',
       'angular-cookies',
       'angular-resource',
+      'angular-loading-bar/build/loading-bar.js',
+      'angular-loading-bar/build/loading-bar.css',
       'bootstrap/less/bootstrap.less',
       'angular-bootstrap/ui-bootstrap-tpls.js',
       'angular-ui-router',
       'underscore',
       //'font-awesome/css/font-awesome.css',
-      'imports?jQuery=jquery!bootstrap/dist/js/bootstrap.js',
-      'pace',
-      'pace/themes/orange/pace-theme-minimal.css'
+      'imports?jQuery=jquery!bootstrap/dist/js/bootstrap.js'
     ],
     'app': './assets/main.coffee'
   },
@@ -45,7 +45,8 @@ module.exports = {
     new webpack.ProvidePlugin({
         $: "jquery",
         jQuery: "jquery",
-        "window.jQuery": "jquery"
+        "window.jQuery": "jquery",
+        _: "underscore"
     }),
     new webpack.ResolverPlugin([
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin( "bower.json", ["main", ["main", "1"]] )

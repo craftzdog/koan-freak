@@ -4,7 +4,8 @@ app = angular.module ___c.appId, [
   'ui.bootstrap',
   'ngRoute',
   'ngResource',
-  'ngCookies'
+  'ngCookies',
+  'angular-loading-bar'
 ]
 
 app.config ($stateProvider, $urlRouterProvider, $locationProvider) ->
@@ -17,6 +18,9 @@ app.config ($stateProvider, $urlRouterProvider, $locationProvider) ->
         '':
           template: require("./home/landing.jade")
           controller: require("./home/landing")
+
+app.config (cfpLoadingBarProvider)->
+  cfpLoadingBarProvider.includeSpinner = false;
 
 require('./modules/session')(app)
 require('./models/article')(app)
