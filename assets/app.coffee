@@ -1,6 +1,5 @@
-
 # Define app module
-main = angular.module ___c.appId, [
+app = angular.module ___c.appId, [
   'ui.router',
   'ui.bootstrap',
   'ngRoute',
@@ -8,7 +7,7 @@ main = angular.module ___c.appId, [
   'ngCookies'
 ]
 
-main.config ($stateProvider, $urlRouterProvider, $locationProvider) ->
+app.config ($stateProvider, $urlRouterProvider, $locationProvider) ->
   $locationProvider.html5Mode(true)
 
   $stateProvider
@@ -23,7 +22,9 @@ main.config ($stateProvider, $urlRouterProvider, $locationProvider) ->
       },
     })
 
-main.run ($rootScope, $state, $stateParams, $log, $location) ->
+require('./modules/session')(app)
+
+app.run ($rootScope, $state, $stateParams, $log, $location, $http, Session) ->
   # It's very handy to add references to $state and $stateParams to the $rootScope
   # so that you can access them from any scope within your applications.For example,
   # <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
@@ -34,4 +35,7 @@ main.run ($rootScope, $state, $stateParams, $log, $location) ->
   $rootScope.$on '$stateChangeStart', (event, toState, toParams) ->
     $rootScope.inAppMode = $location.$$search.app
 
-module.exports = main
+  # Set CSRF token to default request header
+  $http.defaults.headers.common['x-csrf-token']= Session.csrf
+
+module.exports = app
