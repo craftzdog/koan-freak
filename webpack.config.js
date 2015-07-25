@@ -110,7 +110,7 @@ module.exports = {
         test: /\.styl$/,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!stylus-loader')
       },
-      //{ test: /\.(jpg|png)$/, loader: 'file?name=public/img/[name]-[hash].[ext]' },
+      { test: /\.(jpg|png)$/, loader: 'file?name=../img/[name]-[hash].[ext]' },
       //{ test: /\.(jpg|png|gif)$/, loader: 'file' },
     ]
   }
