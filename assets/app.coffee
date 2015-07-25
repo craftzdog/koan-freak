@@ -11,18 +11,15 @@ app.config ($stateProvider, $urlRouterProvider, $locationProvider) ->
   $locationProvider.html5Mode(true)
 
   $stateProvider
-    .state("landing", {
-      url: '/',
-      data: {
-      },
-      views: {
-        '': {
+    .state "landing",
+      url: '/'
+      views:
+        '':
           template: require("./home/landing.jade")
-        },
-      },
-    })
+          controller: require("./home/landing")
 
 require('./modules/session')(app)
+require('./models/article')(app)
 
 app.run ($rootScope, $state, $stateParams, $log, $location, $http, Session) ->
   # It's very handy to add references to $state and $stateParams to the $rootScope
