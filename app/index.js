@@ -3,6 +3,7 @@ var csrf = require('koa-csrf');
 var _ = require('koa-route');
 var common = require('koa-common');
 var session = common.session;
+var consts = require('./consts');
 
 module.exports = function(config) {
 
@@ -66,6 +67,8 @@ module.exports = function(config) {
   /**
    * CSRF tokens
    */
+  app.keys = consts.sessionSecretKeys;
+  app.use(session());
   csrf(app);
   app.use(csrf.middleware);
 
