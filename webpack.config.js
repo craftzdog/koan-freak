@@ -28,8 +28,8 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: 'public/js',
-    publicPath: "/js/"
+    path: 'public',
+    publicPath: "http://localhost:8080/assets/"
   },
   resolve: {
     extensions: ['', '.js', '.coffee', '.less', '.css', '.scss', '.sass', '.jpg', '.png', '.gif'],
@@ -53,14 +53,14 @@ module.exports = {
     ], ["normal", "loader"]),
     new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"0-vendor", /* filename= */"vendor.bundle.js", Infinity),
     //new webpack.optimize.UglifyJsPlugin(),
-    new ExtractTextPlugin("../css/[name].css", {
+    new ExtractTextPlugin("css/[name].css", {
       disable: false,
       allChunks: true
     }),
     function() {
       this.plugin("done", function(stats) {
         require("fs").writeFileSync(
-          path.join(__dirname, "/public/js/", "stats.json"),
+          path.join(__dirname, "/public/", "stats.json"),
           JSON.stringify(stats.toJson()));
       });
     },
@@ -85,18 +85,18 @@ module.exports = {
       //{ test: /\.svg(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?mimetype=image/svg+xml' },
       //{ test: /\.eot(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?mimetype=application/font-woff' },
       //{ test: /\.ttf(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?mimetype=application/font-woff' },
-      { test: /\.woff2(\?.*)?$/, loader: 'file?name=../fonts/[name]-[hash].[ext]' },
-      { test: /\.woff(\?.*)?$/, loader: 'file?name=../fonts/[name]-[hash].[ext]' },
-      { test: /icon.*\.svg(\?.*)?$/i, loader: 'file?name=../fonts/[name]-[hash].[ext]' },
-      { test: /\.eot(\?.*)?$/, loader: 'file?name=../fonts/[name]-[hash].[ext]' },
-      { test: /\.ttf(\?.*)?$/, loader: 'file?name=../fonts/[name]-[hash].[ext]' },
+      { test: /\.woff2(\?.*)?$/, loader: 'file?name=fonts/[name]-[hash].[ext]' },
+      { test: /\.woff(\?.*)?$/, loader: 'file?name=fonts/[name]-[hash].[ext]' },
+      { test: /icon.*\.svg(\?.*)?$/i, loader: 'file?name=fonts/[name]-[hash].[ext]' },
+      { test: /\.eot(\?.*)?$/, loader: 'file?name=fonts/[name]-[hash].[ext]' },
+      { test: /\.ttf(\?.*)?$/, loader: 'file?name=fonts/[name]-[hash].[ext]' },
       { test: /\.coffee$/, loader: "coffee" },
       { test: /\.json$/, loader: 'json' },
       { test: /\.jade$/, loader: "jade" },
       { test: /\.html$/, loader: 'html' },
       { test: /\.yml$/, loader: 'json!yaml' },
       { test: /img\/.*\.svg(\?.*)?$/i, loaders: [
-          'file?name=../img/[name]-[hash].[ext]',
+          'file?name=img/[name]-[hash].[ext]',
           'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
         ]
       },
@@ -110,7 +110,7 @@ module.exports = {
         test: /\.styl$/,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!stylus-loader')
       },
-      { test: /\.(jpg|png)$/, loader: 'file?name=../img/[name]-[hash].[ext]' },
+      { test: /\.(jpg|png)$/, loader: 'file?name=img/[name]-[hash].[ext]' },
       //{ test: /\.(jpg|png|gif)$/, loader: 'file' },
     ]
   }

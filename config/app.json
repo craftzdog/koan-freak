@@ -1,6 +1,8 @@
 {
   "development": {
-  
+    "webpack-dev-server": {
+      "baseUrl": "http://localhost:8080"
+    }
   },
   "production": {
   
