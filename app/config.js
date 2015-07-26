@@ -15,11 +15,6 @@ module.exports = function(app, config) {
 
     // load webpack info
     var stats = require('../public/stats.json');
-    var urlPrefix = '';
-
-    if(process.env.NODE_ENV=='development') {
-      urlPrefix = config['webpack-dev-server'].baseUrl;
-    }
 
     var jsFiles = _.flatten(Object.keys(stats.assetsByChunkName).map(function(name) {
       return filterExtension(stats.assetsByChunkName[name], 'js');
@@ -31,7 +26,7 @@ module.exports = function(app, config) {
     config.webpack = {
       js: jsFiles,
       css: cssFiles,
-      prefix: urlPrefix
+      publicPath: stats.publicPath
     };
     context.config = ctx.config = config;
 

@@ -6,12 +6,12 @@ html
     meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1")
     meta(charset="UTF-8")
     each css in webpack.css
-      link(rel="stylesheet" href=webpack.prefix+"/assets/" + css)
+      link(rel="stylesheet" href=webpack.publicPath + css)
     meta(name="c" content=csrf)
     script(type="text/javascript").
       window.___c = !{JSON.stringify(config)};
     each js in webpack.js
-      script(src=webpack.prefix + "/assets/" + js)
+      script(src=webpack.publicPath + js)
     script(type="text/javascript").
       //window.main = angular.module('webService', []);
   body(ontouchstart="")
