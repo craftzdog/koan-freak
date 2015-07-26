@@ -34,6 +34,9 @@ module.exports = function(app, config) {
   }
 
   function filterExtension(arr, ext) {
+    if(typeof arr == 'string') {
+      arr = [arr];
+    }
     return arr.reduce(function(res, file) {
       if(file.match(new RegExp(ext + "$"))) {
         res.push(file);
