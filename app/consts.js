@@ -1,5 +1,5 @@
 var consts = {
-  config_fn: __dirname + '/../config/app.json',
+  config_fn: __dirname + '/../config/app.js',
   tmp_dir: '/tmp',
   appId: 'webService',
   sessionSecretKeys: ['some secret key'],
