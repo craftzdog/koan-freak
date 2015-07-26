@@ -9,7 +9,14 @@
     "postinstall": "bower install",
     "postupdate": "bower update"
   },
-  "author": "",
+  "author": {
+    "name": "Takuya Matsuyama",
+    "url": "http://odoruinu.net/"
+  },
+  "engines": {
+    "node": ">=0.12",
+    "iojs": ">=1.0"
+  },
   "license": "All rights, reserved",
   "dependencies": {
     "bower": "^1.3.12",
