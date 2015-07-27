@@ -6,6 +6,7 @@ var jsPath = path.join( __dirname, "assets/js" );
 var cssPath = path.join( __dirname, "assets/css" );
 var imgPath = path.join( __dirname, "assets/css" );
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -43,19 +44,21 @@ module.exports = {
   // For marionette, we need it to load the CJS version, which we specify with as ["main", "1"] in the args below.
   plugins: [
     new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery",
-        "window.jQuery": "jquery",
-        _: "underscore"
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
+      _: "underscore"
     }),
     new webpack.ResolverPlugin([
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin( "bower.json", ["main", ["main", "1"]] )
     ], ["normal", "loader"]),
     new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"0-vendor", /* filename= */"vendor.bundle.js", Infinity),
-    //new webpack.optimize.UglifyJsPlugin(),
     new ExtractTextPlugin("css/[name].css", {
       disable: false,
       allChunks: true
+    }),
+    new ngAnnotatePlugin({
+      add: true,
     }),
     function() {
       this.plugin("done", function(stats) {

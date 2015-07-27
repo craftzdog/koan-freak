@@ -1,4 +1,3 @@
-# Define app module
 app = angular.module ___c.appId, [
   'ui.router',
   'ui.bootstrap',

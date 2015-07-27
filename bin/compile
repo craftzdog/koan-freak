@@ -2,4 +2,4 @@
 
 clean
 echo Compiling..
-webpack --progress --colors --optimize-minimize -p --config production.webpack.config.js
+webpack --progress --colors --production --config production.webpack.config.js
