@@ -4,4 +4,4 @@
 clean
 #webpack --display-error-details --progress --colors --watch --devtool sourcemap
 #nvm exec stable webpack --progress --colors --watch --devtool sourcemap
-webpack-dev-server --hot --inline --progress --colors --devtool sourcemap
+webpack-dev-server --hot --inline --progress --colors --devtool eval-source-map
