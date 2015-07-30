@@ -1,4 +1,4 @@
-Another KOAN
+KOAN freak
 ============
 
 Database agnostic KOAN Stack, which is a boilerplate providing a nice starting point for JavaScript web development of single page application with [Koa](http://koajs.com/), [AngularJS](https://angularjs.org/) and Node.js.
@@ -31,4 +31,10 @@ bin/watch
 ```
 bin/koa
 ```
+
+and access to [http://localhost:3000/](http://localhost:3000/)
+
+### Config
+
+The config file is at `config/app.js`.
 
