@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mkdir -p public
 . "$NVM_DIR/nvm.sh"
 clean
 #webpack --display-error-details --progress --colors --watch --devtool sourcemap
